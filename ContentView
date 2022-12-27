@@ -1,0 +1,29 @@
+import SwiftUI
+import WebKit
+
+struct WebView: UIViewRepresentable {
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        let request = URLRequest(url: URL(string: "https://www.discord.com/login")!)
+        webView.load(request)
+        return webView
+    }
+    
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        // Optional: you can use this method to update the web view if necessary
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        WebView()
+            .edgesIgnoringSafeArea(.all)
+            .background(Color.black)
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
